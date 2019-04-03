@@ -1,0 +1,31 @@
+type Query {
+
+}
+
+type Mutation {
+
+}
+
+type User {
+
+}
+
+input UserCreate {
+
+}
+
+input UserInput {
+
+}
+
+type Service {
+
+}
+
+input ServiceCreate {
+
+}
+
+input ServiceInput {
+
+}
