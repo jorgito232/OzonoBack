@@ -2,10 +2,10 @@ scalar date
 
 type Query {
   Users(UserInput): [User]
-  User(UserInput!): User
+  User(ID!): User
 
   Services(ServiceInput): [Service]
-  Service(ServiceInput!): Service
+  Service(ID!): Service
 }
 
 type Mutation {

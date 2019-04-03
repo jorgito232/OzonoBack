@@ -2,21 +2,24 @@ const Service = require('../models/Service')
 
 //Query
 
-const getServices = () => Service.find()
+const getServices = () => Service.find().populate('user').populate('atendend').select('-password')
 
-const getService = (args) => Service.find(args)
+const getService = (args) => Service.find(args).populate('user').populate('atendend').select('-password')
+
+const getOneService = (id) => Service.findOne({id: id}).populate('user').populate('atendend').select('-password')
 
 //Mutation
 
-const createService = (data) => Service.create(data).select("-password")
+const createService = (data) => Service.create(data).exec().then(() => true).catch(() => false)
 
-const updateService = (id, data) => Service.findOneAndUpdate({id: id}, data, {new: true}).select("-password")
+const updateService = (id, data) => Service.findOneAndUpdate({id: id}, {$set: data}, {new: true}).exec().then(() => true).catch(() => false)
 
-const deleteService = (id) => Service.deleteOne({id: id}).select("-password")
+const deleteService = (id) => Service.deleteOne({id: id}).exec().then(() => true).catch(() => false)
 
 module.exports = {
   getServices,
   getService,
+  getOneService,
   createService,
   updateService,
   deleteService
