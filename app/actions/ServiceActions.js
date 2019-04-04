@@ -12,7 +12,7 @@ const getOneService = (id) => Service.findOne({id: id}).populate('user').populat
 
 const createService = (data) => Service.create(data).exec().then(() => true).catch(() => false)
 
-const updateService = (id, data) => Service.findOneAndUpdate({id: id}, {$set: data}, {new: true}).exec().then(() => true).catch(() => false)
+const updateService = (data) => Service.findOneAndUpdate({id: data.id}, {$set: data}, {new: true}).exec().then(() => true).catch(() => false)
 
 const deleteService = (id) => Service.deleteOne({id: id}).exec().then(() => true).catch(() => false)
 
