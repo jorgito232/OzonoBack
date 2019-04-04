@@ -28,5 +28,5 @@ const options = {
 
 const server = new GraphQLServer({schema})
 
-server.start(options, (_, () => console.log('Server Connected')))
+server.start(options, (({port}) => console.log('Server Connected')))
 
