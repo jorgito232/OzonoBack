@@ -1,31 +1,91 @@
-type Query {
+scalar date
 
+type Query {
+  Users(data: UserInput): [User]
+  User(data: ID!): User
+
+  Services(data: ServiceInput): [Service]
+  Service(data: ID!): Service
+
+  Login(email: String!, password: String!): String
 }
 
 type Mutation {
+  CreateUser(UserCreate!): Boolean!
+  UpdateUser(UserInput!): Boolean!
+  DeleteUser(ID!): Boolean!
 
+  CreateService(ServiceCreate): String!
+  UpdateService(ServiceInput): Boolean!
+  DeleteService(ID!): Boolean!
 }
 
 type User {
+  _id: ID!
+  name: String!
+  lastName: String!
+  email: String!
+  password: String
+  type: String!
+}
 
+enum UserType {
+  USER
+  EMPLOYEE
+  ADMIN
 }
 
 input UserCreate {
-
+  name: String!
+  lastName: String!
+  email: String!
+  password: String!
+  type: String
 }
 
 input UserInput {
-
+  _id: ID!
+  name: String
+  lastName: String
+  email: String
+  password: String
+  type: String
 }
 
 type Service {
+  _id: ID!
+  user: ID!
+  atendend: ID!
+  description: String!
+  price: String!
+  type: ServiceType!
+  dateStart: date!
+  dateEnd: date
+}
 
+enum ServiceType {
+  DELIVERY
+  PRODUCT
+  STAND
 }
 
 input ServiceCreate {
-
+  user: ID!
+  atendend: ID
+  description: String!
+  price: String!
+  type: ServiceType!
+  dateStart: date!
+  dateEnd: date
 }
 
 input ServiceInput {
-
+  _id: ID
+  user: ID
+  atendend: ID
+  description: String
+  price: String
+  type: ServiceType
+  dateStart: date
+  dateEnd: date
 }
