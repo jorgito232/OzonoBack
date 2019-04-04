@@ -2,22 +2,22 @@ scalar date
 
 type Query {
   Users(data: UserInput): [User]
-  User(data: ID!): User
+  User(id: ID!): User
 
   Services(data: ServiceInput): [Service]
-  Service(data: ID!): Service
+  Service(id: ID!): Service
 
   Login(email: String!, password: String!): String
 }
 
 type Mutation {
-  CreateUser(UserCreate!): Boolean!
-  UpdateUser(UserInput!): Boolean!
-  DeleteUser(ID!): Boolean!
+  CreateUser(data: UserCreate!): Boolean!
+  UpdateUser(data: UserInput!): Boolean!
+  DeleteUser(id: ID!): Boolean!
 
-  CreateService(ServiceCreate): String!
-  UpdateService(ServiceInput): Boolean!
-  DeleteService(ID!): Boolean!
+  CreateService(data: ServiceCreate): String!
+  UpdateService(data: ServiceInput): Boolean!
+  DeleteService(id: ID!): Boolean!
 }
 
 type User {
