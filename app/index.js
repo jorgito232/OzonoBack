@@ -2,7 +2,7 @@ const { GraphQLServer } = require('graphql-yoga')
 const { importSchema } = require('graphql-import')
 const { makeExecutableSchema } = require('graphql-tools') 
 const db = require('./utils/DataBase')
-const typeDefs = importSchema('./schema.graphql')
+const typeDefs = importSchema('./app/schema.graphql')
 const resolvers = require('./resolvers')
 
 const PORT = process.env.PORT 
