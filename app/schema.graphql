@@ -1,11 +1,13 @@
 scalar date
 
 type Query {
-  Users(UserInput): [User]
-  User(ID!): User
+  Users(data: UserInput): [User]
+  User(data: ID!): User
 
-  Services(ServiceInput): [Service]
-  Service(ID!): Service
+  Services(data: ServiceInput): [Service]
+  Service(data: ID!): Service
+
+  Login(email: String!, password: String!): String
 }
 
 type Mutation {
