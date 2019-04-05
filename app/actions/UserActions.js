@@ -9,7 +9,7 @@ const getOneUser = (id) => User.findOne({id: id}).select("-password")
 
 //Mutation
 
-const createUser = (data) => User.create(data).then(() => true).exec().catch(() => false)
+const createUser = (data) => User.create(data).exec().then(() => true).catch(() => false)
 
 const updateUser = (data) => User.findOneAndUpdate({id: data.id}, {$set: data}, {new: true}).exec().then(() => true).catch(() => false)
 
