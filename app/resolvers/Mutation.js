@@ -1,14 +1,14 @@
 const { UserActions, ServiceActions } = require('../actions')
 
-const CreateUser = (_, data) => UserActions.createUser(data)
+const CreateUser = (_, args) => UserActions.createUser(args.data)
 
-const UpdateUser = (_, data) => UserActions.updateUser(data.id, data)
+const UpdateUser = (_, args) => UserActions.updateUser(args.data.id, args.data)
 
 const DeleteUser = (_, id) => UserActions.deleteUser(id)
 
-const CreateService = (_, data) => ServiceActions.createService(data)
+const CreateService = (_, args) => ServiceActions.createService(args.data)
 
-const UpdateService = (_, data) => ServiceActions.updateService(data)
+const UpdateService = (_, args) => ServiceActions.updateService(args.data)
 
 const DeleteService = (_, id) => ServiceActions.deleteService(id)
 

@@ -7,7 +7,7 @@ type Query {
   Services(data: ServiceInput): [Service]
   Service(id: ID!): Service
 
-  Login(email: String!, password: String!): String
+  Login(email: String!, password: String!): String!
 }
 
 type Mutation {

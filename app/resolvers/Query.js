@@ -6,7 +6,7 @@ const User = (_, id) => UserActions.getOneUser(id)
 const Services = (_, data) => ServiceActions.getServices(data)
 const Service = (_, id) => ServiceActions.getOneService(id)
 
-const Login = (_, { email, password }) => AuthActions.login({ email, password })
+const Login = (_, args) => AuthActions.login(args).then(((token) => {return token})).catch((err) => err)
 
 module.exports = {
   Users,
