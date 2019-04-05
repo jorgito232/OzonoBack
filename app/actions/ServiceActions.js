@@ -10,11 +10,11 @@ const getOneService = (id) => Service.findOne({id: id}).populate('user').populat
 
 //Mutation
 
-const createService = (data) => Service.create(data).exec().then(() => true).catch(() => false)
+const createService = (data) => Service.create(data).then(() => true).catch(() => false)
 
-const updateService = (data) => Service.findOneAndUpdate({id: data.id}, {$set: data}, {new: true}).exec().then(() => true).catch(() => false)
+const updateService = (data) => Service.findOneAndUpdate({id: data.id}, {$set: data}, {new: true}).then(() => true).catch(() => false)
 
-const deleteService = (id) => Service.deleteOne({id: id}).exec().then(() => true).catch(() => false)
+const deleteService = (id) => Service.deleteOne({id: id}).then(() => true).catch(() => false)
 
 module.exports = {
   getServices,
