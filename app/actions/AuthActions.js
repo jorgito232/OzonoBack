@@ -31,6 +31,8 @@ const login = ({email, password}) => {
         if (err) reject(err)
         isValid ? resolve(createToken(user)) : reject('User or password invalid')
       })
+    }).catch(() => {
+      reject('User or password invalid')
     })    
   })
 }
