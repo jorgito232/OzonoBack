@@ -19,8 +19,6 @@ const schema = makeExecutableSchema({typeDefs, resolvers})
 
 const options = {
 	port: process.env.PORT || 8000,
-	endpoint: "/graphql",
-	playground: "/playground",
 	cors:{
 		origin:"*"
 	}
