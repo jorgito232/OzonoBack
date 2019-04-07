@@ -32,7 +32,7 @@ const login = ({email, password}) => {
         isValid ? resolve(createToken(user)) : reject('User or password invalid')
       })
     }).catch(() => {
-      reject('User or password invalid')
+      reject()
     })    
   })
 }
