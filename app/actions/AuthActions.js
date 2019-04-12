@@ -29,7 +29,7 @@ const login = ({email, password}) => {
     getUserByEmail(email).then((user) => {
       bcrypt.compare(password, user.password, (err, isValid) => {
         if (err) reject(err)
-        isValid ? resolve(createToken(user)) : reject()
+        isValid ? resolve({token: createToken(user), user: user}) : reject()
       })
     }).catch(() => {
       reject()

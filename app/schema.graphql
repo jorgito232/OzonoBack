@@ -7,7 +7,7 @@ type Query {
   Services: [Service]
   Service(id: ID!): Service
 
-  Login(email: String!, password: String!): String
+  Login(email: String!, password: String!): Auth
 }
 
 type Mutation {
@@ -87,4 +87,9 @@ input ServiceInput {
   type: ServiceType
   dateStart: date
   dateEnd: date
+}
+
+type Auth{
+  token: String
+  user: User
 }
